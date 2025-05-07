@@ -1,0 +1,392 @@
+/* Responsive Styles for Cosmic Bible App */
+
+/* Base responsive adjustments for all devices */
+@media screen and (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .scripture-container {
+        flex-direction: column;
+    }
+    
+    .scripture-tools {
+        flex-direction: row;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .tool-button {
+        flex: 1;
+    }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 900px) {
+    .intro-content {
+        width: 90%;
+    }
+    
+    .title {
+        font-size: 3.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .options-container {
+        gap: 2rem;
+    }
+    
+    .option-card {
+        width: 300px;
+    }
+    
+    .auth-card {
+        width: 90%;
+        max-width: 500px;
+    }
+    
+    .main-content {
+        padding: 1.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+    }
+    
+    .scripture-select {
+        width: 100%;
+    }
+    
+    .bookmarks-container, .notes-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 600px) {
+    .dashboard-page {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid rgba(67, 203, 255, 0.2);
+        padding: 1rem;
+    }
+    
+    .sidebar-nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+    
+    .sidebar-nav ul::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .nav-item {
+        margin: 0;
+        padding: 0.5rem;
+        flex-direction: column;
+        font-size: 0.7rem;
+    }
+    
+    .nav-item svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 0;
+        margin-bottom: 0.3rem;
+    }
+    
+    .main-content {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-profile {
+        padding: 0.5rem;
+    }
+    
+    .profile-image {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .profile-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .user-status {
+        font-size: 0.7rem;
+    }
+    
+    .logo-container {
+        padding: 0.5rem 1rem;
+    }
+    
+    .sidebar-logo {
+        font-size: 1.2rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .add-note-button {
+        width: 100%;
+    }
+    
+    .scripture-content {
+        padding: 1.5rem;
+    }
+    
+    .scripture-title {
+        font-size: 1.5rem;
+    }
+    
+    .scripture-text {
+        font-size: 1rem;
+    }
+    
+    .verse-num {
+        font-size: 0.8rem;
+        min-width: 20px;
+    }
+    
+    .quick-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Fix for bookmark and note cards */
+    .bookmark-card, .note-card {
+        padding: 1rem;
+    }
+    
+    .bookmark-header h3, .note-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .bookmark-date, .note-date {
+        font-size: 0.7rem;
+    }
+    
+    .bookmark-content, .note-content {
+        font-size: 0.9rem;
+    }
+    
+    /* Fix for chat interface */
+    .chat-container {
+        height: calc(100vh - 200px);
+    }
+    
+    .chat-message {
+        padding: 0.8rem;
+    }
+    
+    .message-text {
+        font-size: 0.9rem;
+    }
+    
+    .chat-input input {
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Small mobile styles */
+@media screen and (max-width: 400px) {
+    .title {
+        font-size: 2.8rem;
+    }
+    
+    .pulsating-orb {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .option-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .auth-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .auth-tab {
+        width: 100%;
+        padding: 0.8rem;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .social-button {
+        width: 100%;
+    }
+    
+    .quick-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .scripture-tools {
+        flex-wrap: wrap;
+    }
+    
+    .tool-button {
+        min-width: 80px;
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .app-container {
+        min-height: -webkit-fill-available;
+    }
+    
+    .dashboard-page {
+        min-height: -webkit-fill-available;
+    }
+    
+    .intro-page, .options-page, .sign-in-page {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Fix for Firefox */
+@-moz-document url-prefix() {
+    .sidebar-nav ul {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(67, 203, 255, 0.5) transparent;
+    }
+    
+    .scripture-text {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(67, 203, 255, 0.5) transparent;
+    }
+}
+
+/* Fix for Edge and Chrome */
+@supports (-ms-ime-align: auto) or (-webkit-appearance: none) {
+    .dashboard-page {
+        height: 100vh;
+    }
+    
+    .sidebar {
+        height: 100vh;
+    }
+    
+    /* Fix for backdrop-filter */
+    @supports not (backdrop-filter: blur(10px)) {
+        .sidebar, .scripture-content, .bookmark-card, .note-card, .dashboard-card {
+            background: rgba(20, 20, 40, 0.9);
+        }
+    }
+}
+
+/* Fix for dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #f8f9fa;
+        --bg-color: #0a0a1a;
+        --card-bg: rgba(20, 20, 40, 0.7);
+    }
+}
+
+/* Fix for light mode compatibility */
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-color: #0a0a1a;
+        --bg-color: #f8f9fa;
+        --card-bg: rgba(240, 240, 255, 0.7);
+    }
+    
+    .sidebar, .scripture-content, .bookmark-card, .note-card, .dashboard-card {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Print styles for scripture reading */
+@media print {
+    .sidebar, .scripture-tools, .section-controls {
+        display: none !important;
+    }
+    
+    .main-content {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .scripture-content {
+        box-shadow: none !important;
+        border: none !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .scripture-title {
+        color: black !important;
+    }
+    
+    .verse-num {
+        color: #666 !important;
+    }
+}
+
+/* Fix for high contrast mode */
+@media (forced-colors: active) {
+    .sidebar, .scripture-content, .bookmark-card, .note-card, .dashboard-card {
+        border: 1px solid CanvasText;
+    }
+    
+    .nav-item.active {
+        background: Highlight;
+        color: HighlightText;
+    }
+    
+    .card-button, .tool-button, .bookmark-action-button, .note-action-button {
+        border: 1px solid CanvasText;
+    }
+}
+
+/* Fix for ultra-wide screens */
+@media screen and (min-width: 1800px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .bookmarks-container, .notes-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .main-content {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}
