@@ -1,0 +1,252 @@
+/* Cross-browser compatibility fixes for Cosmic Bible App */
+
+/* Fix for glassmorphism effect in different browsers */
+.scripture-content,
+.bookmark-card,
+.note-card,
+.dashboard-card,
+.auth-card,
+.option-card,
+.chat-container,
+.search-container,
+.notification {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+    .scripture-content,
+    .bookmark-card,
+    .note-card,
+    .dashboard-card,
+    .auth-card,
+    .option-card,
+    .chat-container,
+    .search-container,
+    .notification {
+        background-color: rgba(20, 20, 40, 0.9);
+    }
+}
+
+/* Fix for gradient text in different browsers */
+.title, .sidebar-logo, .options-title {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Fallback for browsers that don't support gradient text */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    .title, .sidebar-logo, .options-title {
+        background: none;
+        color: var(--gradient-start);
+    }
+}
+
+/* Fix for flexbox in older browsers */
+.flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Fix for grid layout in older browsers */
+.dashboard-grid,
+.bookmarks-container,
+.notes-container,
+.quick-buttons {
+    display: -ms-grid;
+    display: grid;
+}
+
+/* Fix for animations in different browsers */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1); transform: scale(1); }
+    50% { -webkit-transform: scale(0.95); transform: scale(0.95); }
+    100% { -webkit-transform: scale(1); transform: scale(1); }
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+@-webkit-keyframes successPulse {
+    0% { -webkit-transform: scale(1); transform: scale(1); }
+    50% { -webkit-transform: scale(1.05); transform: scale(1.05); }
+    100% { -webkit-transform: scale(1); transform: scale(1); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@-webkit-keyframes slideIn {
+    0% { -webkit-transform: translateX(100%); transform: translateX(100%); opacity: 0; }
+    100% { -webkit-transform: translateX(0); transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+@-webkit-keyframes fadeOut {
+    0% { -webkit-transform: translateX(0); transform: translateX(0); opacity: 1; }
+    100% { -webkit-transform: translateX(100%); transform: translateX(100%); opacity: 0; }
+}
+
+/* Fix for transitions in different browsers */
+.card-button,
+.tool-button,
+.bookmark-action-button,
+.note-action-button,
+.nav-item,
+.option-card,
+.auth-tab {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Fix for transforms in different browsers */
+.card-button:hover,
+.tool-button:hover,
+.option-card:hover,
+.suggestion-button:hover {
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+/* Fix for box-shadow in different browsers */
+.card-button:hover,
+.tool-button:hover,
+.option-card:hover {
+    -webkit-box-shadow: 0 4px 15px rgba(67, 203, 255, 0.4);
+    -moz-box-shadow: 0 4px 15px rgba(67, 203, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(67, 203, 255, 0.4);
+}
+
+/* Fix for border-radius in different browsers */
+.card-button,
+.tool-button,
+.bookmark-card,
+.note-card,
+.dashboard-card,
+.scripture-content,
+.search-container,
+.auth-card,
+.option-card {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+/* Fix for opacity in different browsers */
+.scripture-placeholder,
+.empty-state p {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+/* Fix for z-index stacking context in different browsers */
+.sidebar,
+.notification,
+.modal {
+    z-index: 10;
+    position: relative;
+}
+
+/* Fix for overflow scrolling in different browsers */
+.scripture-text,
+.chat-messages,
+.bookmarks-container,
+.notes-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+/* Fix for touch events on mobile devices */
+.card-button,
+.tool-button,
+.bookmark-action-button,
+.note-action-button,
+.nav-item {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Fix for iOS input styling */
+input,
+select,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+}
+
+/* Fix for Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(67, 203, 255, 0.5) transparent;
+}
+
+/* Fix for Chrome/Edge/Safari scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(67, 203, 255, 0.5);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(67, 203, 255, 0.7);
+}
+
+/* Fix for Internet Explorer */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .title, .sidebar-logo, .options-title {
+        background: none;
+        color: var(--gradient-start);
+    }
+    
+    .scripture-content,
+    .bookmark-card,
+    .note-card,
+    .dashboard-card,
+    .auth-card,
+    .option-card,
+    .chat-container,
+    .search-container {
+        background-color: rgba(20, 20, 40, 0.9);
+    }
+}
