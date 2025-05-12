@@ -96,21 +96,43 @@
     .study-card {
         min-height: auto;
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin-bottom: 0.5rem;
     }
     
     .study-card p {
         margin-bottom: 1rem;
+        display: block;
+        width: 100%;
+        overflow: visible;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .study-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
     }
     
     .study-icon {
         width: 60px;
         height: 60px;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
     }
     
     .study-button {
-        margin-top: 1rem;
+        margin-top: 0.8rem;
         width: 100%;
+        padding: 0.5rem 1rem;
+    }
+    
+    .premium-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+        right: 10px;
+        top: 10px;
     }
     
     .sidebar-nav ul {
