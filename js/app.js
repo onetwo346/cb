@@ -1584,19 +1584,17 @@ function setupSettings() {
     const settingsSelects = document.querySelectorAll('.settings-select');
     const toggleSwitches = document.querySelectorAll('.toggle-switch input');
     
-    // Theme options
+    // Theme options - only dark theme is supported
     if (themeOptions.length) {
-        themeOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Update active theme button
-                themeOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
-                // Apply theme
-                const theme = option.getAttribute('data-theme');
-                applyTheme(theme);
-            });
+        // Make sure dark theme is always active
+        themeOptions.forEach(opt => {
+            if (opt.getAttribute('data-theme') === 'dark') {
+                opt.classList.add('active');
+            }
         });
+        
+        // Apply dark theme on load
+        applyTheme('dark');
     }
     
     // Font size controls
@@ -1651,36 +1649,14 @@ function setupSettings() {
         });
     }
     
-    // Apply theme function
+    // Apply theme function - only dark theme is supported
     function applyTheme(theme) {
         const root = document.documentElement;
         
-        switch(theme) {
-            case 'dark':
-                // Current dark theme (default)
-                root.style.setProperty('--bg-color', '#0a0e17');
-                root.style.setProperty('--card-bg', 'rgba(16, 23, 34, 0.7)');
-                root.style.setProperty('--text-color', '#f8f9fa');
-                break;
-            case 'light':
-                // Light theme
-                root.style.setProperty('--bg-color', '#f0f4f8');
-                root.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.7)');
-                root.style.setProperty('--text-color', '#1a1a2e');
-                break;
-            case 'sepia':
-                // Sepia theme
-                root.style.setProperty('--bg-color', '#f1e9d2');
-                root.style.setProperty('--card-bg', 'rgba(251, 242, 219, 0.7)');
-                root.style.setProperty('--text-color', '#5c4f3a');
-                break;
-        }
-        
-        // Add animation effect for theme transition
-        document.body.classList.add('theme-transition');
-        setTimeout(() => {
-            document.body.classList.remove('theme-transition');
-        }, 1000);
+        // Only dark theme is supported
+        root.style.setProperty('--bg-color', '#0a0e17');
+        root.style.setProperty('--card-bg', 'rgba(16, 23, 34, 0.7)');
+        root.style.setProperty('--text-color', '#f8f9fa');
     }
     
     // Apply font size function
